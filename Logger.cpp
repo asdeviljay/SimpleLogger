@@ -6,7 +6,7 @@
 const std::string Logger::m_fileName = "error.log";
 Logger* Logger::m_pInstance = nullptr;
 std::ofstream Logger::m_logFile;
-const std::string Logger::m_tagName[3] = { "INFO", "WARRING", "ERROR" };
+const std::string Logger::m_tagName[3] = { "INFO", "WARNING", "ERROR" };
 
 Logger::Logger()
 {
@@ -57,7 +57,9 @@ void Logger::Log(const unsigned int t_tag, const std::string& t_message) {
 
 void Logger::releaseInstance() {
 	REQUIRED(m_pInstance != nullptr);
-	delete(m_pInstance);
+	if (m_pInstance != nullptr) {
+		delete(m_pInstance);
+	}
 }
 
 /*void Logger::Log(const unsigned int t_tag, const char* t_message) {

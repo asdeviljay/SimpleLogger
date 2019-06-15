@@ -24,7 +24,7 @@ float calSquareArea(float t_w) {
 		area = t_w * t_w;
 	}
 	if (t_w == 0.0f) {
-		Logger::instance()->Log(Logger::WARRING, "This Value must be greater than zero");
+		Logger::instance()->Log(Logger::INFO, "This Value must be greater than zero");
 	}
 	PROMISED(area >= 0.0f);
 	return area;

@@ -15,9 +15,9 @@ public:
 	void Log(const unsigned int t_tag, const std::string& t_message);
 	static void releaseInstance();
 
-	static const unsigned int INFO = 0;
-	static const unsigned int WARRING = 1;
-	static const unsigned int ERROR = 2;
+	const enum logLevel {
+		INFO, WARNING, ERROR
+	};
 
 private:
 	Logger();
